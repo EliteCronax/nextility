@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextility</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #000;
+            color: #0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .number {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const totalNumbers = 10000;
+
+        for (let i = 0; i < totalNumbers; i++) {
+            const numberDiv = document.createElement('div');
+            numberDiv.className = 'number';
+            numberDiv.textContent = Math.floor(Math.random() * 10);
+            document.body.appendChild(numberDiv);
+
+            setInterval(() => {
+                const randomDelay = Math.random() * 9900 + 100; // 0.1 to 10 seconds
+                setTimeout(() => {
+                    numberDiv.textContent = Math.floor(Math.random() * 10);
+                }, randomDelay);
+            }, 100);
+        }
+    </script>
+</body>
+</html>
